@@ -16,6 +16,11 @@ RUN apt-get install -y zip unzip
 
 RUN apt install -y php7.4 php7.4-mbstring php7.4-zip && apt install -y git apache2 libapache2-mod-php7.4
 
+RUN curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash -
+RUN apt-get install -y nodejs
+
+RUN npm install -g live-server
+
 RUN rm /var/www/html/*
 RUN git clone https://github.com/Atheos/Atheos /tmp/Atheos
 RUN mv /tmp/Atheos/* /var/www/html/
